@@ -1,0 +1,775 @@
+netadmin@netadmin:~$ touch /etc/prueba.txt
+touch: cannot touch '/etc/prueba.txt': Permission denied
+netadmin@netadmin:~$ sudo touch /etc/prueba.txt
+netadmin@netadmin:~$ ls /etc/pru*
+/etc/prueba.txt
+netadmin@netadmin:~$ ls -l /usr/bin/whatis
+-rwxr-xr-x 1 root root 48416 Mar 17  2022 /usr/bin/whatis
+netadmin@netadmin:~$ whoami
+netadmin
+netadmin@netadmin:~$ adduser luisjose
+adduser: Only root may add a user or group to the system.
+netadmin@netadmin:~$ sudo -i
+root@netadmin:~# adduser luisjose
+Adding user `luisjose' ...
+Adding new group `luisjose' (1003) ...
+Adding new user `luisjose' (1008) with group `luisjose' ...
+Creating home directory `/home/luisjose' ...
+Copying files from `/etc/skel' ...
+New password:
+Retype new password:
+passwd: password updated successfully
+Changing the user information for luisjose
+Enter the new value, or press ENTER for the default
+        Full Name []: Luis Jose
+        Room Number []: 1
+        Work Phone []: 3191329
+        Home Phone []: 2677483
+        Other []: 1
+Is the information correct? [Y/n] y
+root@netadmin:~# su luisjose
+luisjose@netadmin:/root$ whoami
+luisjose
+luisjose@netadmin:/root$ sudo -i
+[sudo] password for luisjose:
+Sorry, try again.
+[sudo] password for luisjose:
+luisjose is not in the sudoers file.  This incident will be reported.
+luisjose@netadmin:/root$ exit
+exit
+root@netadmin:~# addgrupo Tics
+addgrupo: command not found
+root@netadmin:~# addgrup Tics
+Command 'addgrup' not found, did you mean:
+  command 'addgroup' from deb adduser (3.118ubuntu5)
+Try: apt install <deb name>
+root@netadmin:~# addgroup Tics
+addgroup: Please enter a username matching the regular expression configured
+via the NAME_REGEX[_SYSTEM] configuration variable.  Use the `--force-badname'
+option to relax this check or reconfigure NAME_REGEX.
+root@netadmin:~# addgroup /etc/Tics
+addgroup: To avoid problems, the username should consist only of
+letters, digits, underscores, periods, at signs and dashes, and not start with
+a dash (as defined by IEEE Std 1003.1-2001). For compatibility with Samba
+machine accounts $ is also supported at the end of the username
+root@netadmin:~#
+root@netadmin:~# addgroup tics
+Adding group `tics' (GID 1006) ...
+Done.
+root@netadmin:~# useradd alumno -m -G tics
+root@netadmin:~# su alumno
+$ whoami
+alumno
+$ exit
+root@netadmin:~# whoami
+root
+root@netadmin:~# exit
+logout
+netadmin@netadmin:~$ cat groups
+cat: groups: No such file or directory
+netadmin@netadmin:~$ ls -l
+total 0
+netadmin@netadmin:~$ ls
+netadmin@netadmin:~$ cat /etc/group
+root:x:0:
+daemon:x:1:
+bin:x:2:
+sys:x:3:
+adm:x:4:syslog,netadmin
+tty:x:5:
+disk:x:6:
+lp:x:7:
+mail:x:8:
+news:x:9:
+uucp:x:10:
+man:x:12:
+proxy:x:13:
+kmem:x:15:
+dialout:x:20:
+fax:x:21:
+voice:x:22:
+cdrom:x:24:netadmin
+floppy:x:25:
+tape:x:26:
+sudo:x:27:netadmin
+audio:x:29:
+dip:x:30:netadmin
+www-data:x:33:
+backup:x:34:
+operator:x:37:
+list:x:38:
+irc:x:39:
+src:x:40:
+gnats:x:41:
+shadow:x:42:
+utmp:x:43:
+video:x:44:
+sasl:x:45:
+plugdev:x:46:netadmin
+staff:x:50:
+games:x:60:
+users:x:100:
+nogroup:x:65534:
+systemd-journal:x:101:
+systemd-network:x:102:
+systemd-resolve:x:103:
+messagebus:x:104:
+systemd-timesync:x:105:
+input:x:106:
+sgx:x:107:
+kvm:x:108:
+render:x:109:
+lxd:x:110:netadmin
+_ssh:x:111:
+crontab:x:112:
+syslog:x:113:
+uuidd:x:114:
+tcpdump:x:115:
+tss:x:116:
+landscape:x:117:
+netadmin:x:1000:
+fwupd-refresh:x:118:
+ssolis:x:1001:
+pbarahona:x:1002:
+tiks:x:1004:
+soporte1:x:1005:
+informatica:x:2005:ssolis,pzapata
+autouser:x:2006:
+angel:x:1015:
+mmorales:x:1016:
+oficina_tics:x:2007:
+finanzas:x:2008:
+finanzas1:x:2009:
+luisjose:x:1003:
+tics:x:1006:alumno
+alumno:x:1020:
+netadmin@netadmin:~$ ls -l /home/
+total 0
+drwxr-x--- 2 alumno     alumno        57 Nov 22 17:25 alumno
+drwxrwxrwx 2 brodriguez finanzas      97 Nov 21 17:27 brodriguez
+drwxrwxrwx 3 halmache   oficina_tics 127 Nov 21 17:27 halmache
+drwxr-x--- 2 kteran     finanzas1     57 Nov 21 16:55 kteran
+drwxr-x--- 2 luisjose   luisjose      78 Nov 22 17:18 luisjose
+drwxr-x--- 2 maguas     oficina_tics  57 Nov 21 16:27 maguas
+drwxr-x--- 3       1017 luisjose     111 Nov 21 16:19 mflores
+drwxr-x--- 4 netadmin   netadmin     172 Nov 21 17:21 netadmin
+drwxr-x--- 3 pbarahona  pbarahona     92 Nov 21 14:01 pbarahona
+drwxr-x--- 4 ssolis     ssolis       125 Nov 21 14:00 ssolis
+netadmin@netadmin:~$ grupopadd oficina_malaga
+grupopadd: command not found
+netadmin@netadmin:~$ sudo groupadd oficina_malaga
+[sudo] password for netadmin:
+netadmin@netadmin:~$ sudo groupadd oficina_jaen
+netadmin@netadmin:~$ netadmin
+netadmin: command not found
+netadmin@netadmin:~$ sudo groupadd oficina_madrit
+netadmin@netadmin:~$ cat /etc/group
+root:x:0:
+daemon:x:1:
+bin:x:2:
+sys:x:3:
+adm:x:4:syslog,netadmin
+tty:x:5:
+disk:x:6:
+lp:x:7:
+mail:x:8:
+news:x:9:
+uucp:x:10:
+man:x:12:
+proxy:x:13:
+kmem:x:15:
+dialout:x:20:
+fax:x:21:
+voice:x:22:
+cdrom:x:24:netadmin
+floppy:x:25:
+tape:x:26:
+sudo:x:27:netadmin
+audio:x:29:
+dip:x:30:netadmin
+www-data:x:33:
+backup:x:34:
+operator:x:37:
+list:x:38:
+irc:x:39:
+src:x:40:
+gnats:x:41:
+shadow:x:42:
+utmp:x:43:
+video:x:44:
+sasl:x:45:
+plugdev:x:46:netadmin
+staff:x:50:
+games:x:60:
+users:x:100:
+nogroup:x:65534:
+systemd-journal:x:101:
+systemd-network:x:102:
+systemd-resolve:x:103:
+messagebus:x:104:
+systemd-timesync:x:105:
+input:x:106:
+sgx:x:107:
+kvm:x:108:
+render:x:109:
+lxd:x:110:netadmin
+_ssh:x:111:
+crontab:x:112:
+syslog:x:113:
+uuidd:x:114:
+tcpdump:x:115:
+tss:x:116:
+landscape:x:117:
+netadmin:x:1000:
+fwupd-refresh:x:118:
+ssolis:x:1001:
+pbarahona:x:1002:
+tiks:x:1004:
+soporte1:x:1005:
+informatica:x:2005:ssolis,pzapata
+autouser:x:2006:
+angel:x:1015:
+mmorales:x:1016:
+oficina_tics:x:2007:
+finanzas:x:2008:
+finanzas1:x:2009:
+luisjose:x:1003:
+tics:x:1006:alumno
+alumno:x:1020:
+oficina_malaga:x:2010:
+oficina_jaen:x:2011:
+oficina_madrit:x:2012:
+netadmin@netadmin:~$ sudo groupmod -n oficina_madrid oficina_madrit
+netadmin@netadmin:~$ cat /etc/group
+root:x:0:
+daemon:x:1:
+bin:x:2:
+sys:x:3:
+adm:x:4:syslog,netadmin
+tty:x:5:
+disk:x:6:
+lp:x:7:
+mail:x:8:
+news:x:9:
+uucp:x:10:
+man:x:12:
+proxy:x:13:
+kmem:x:15:
+dialout:x:20:
+fax:x:21:
+voice:x:22:
+cdrom:x:24:netadmin
+floppy:x:25:
+tape:x:26:
+sudo:x:27:netadmin
+audio:x:29:
+dip:x:30:netadmin
+www-data:x:33:
+backup:x:34:
+operator:x:37:
+list:x:38:
+irc:x:39:
+src:x:40:
+gnats:x:41:
+shadow:x:42:
+utmp:x:43:
+video:x:44:
+sasl:x:45:
+plugdev:x:46:netadmin
+staff:x:50:
+games:x:60:
+users:x:100:
+nogroup:x:65534:
+systemd-journal:x:101:
+systemd-network:x:102:
+systemd-resolve:x:103:
+messagebus:x:104:
+systemd-timesync:x:105:
+input:x:106:
+sgx:x:107:
+kvm:x:108:
+render:x:109:
+lxd:x:110:netadmin
+_ssh:x:111:
+crontab:x:112:
+syslog:x:113:
+uuidd:x:114:
+tcpdump:x:115:
+tss:x:116:
+landscape:x:117:
+netadmin:x:1000:
+fwupd-refresh:x:118:
+ssolis:x:1001:
+pbarahona:x:1002:
+tiks:x:1004:
+soporte1:x:1005:
+informatica:x:2005:ssolis,pzapata
+autouser:x:2006:
+angel:x:1015:
+mmorales:x:1016:
+oficina_tics:x:2007:
+finanzas:x:2008:
+finanzas1:x:2009:
+luisjose:x:1003:
+tics:x:1006:alumno
+alumno:x:1020:
+oficina_malaga:x:2010:
+oficina_jaen:x:2011:
+oficina_madrid:x:2012:
+netadmin@netadmin:~$ sudo groupdel oficina_jaen
+netadmin@netadmin:~$ cat /etc/group
+root:x:0:
+daemon:x:1:
+bin:x:2:
+sys:x:3:
+adm:x:4:syslog,netadmin
+tty:x:5:
+disk:x:6:
+lp:x:7:
+mail:x:8:
+news:x:9:
+uucp:x:10:
+man:x:12:
+proxy:x:13:
+kmem:x:15:
+dialout:x:20:
+fax:x:21:
+voice:x:22:
+cdrom:x:24:netadmin
+floppy:x:25:
+tape:x:26:
+sudo:x:27:netadmin
+audio:x:29:
+dip:x:30:netadmin
+www-data:x:33:
+backup:x:34:
+operator:x:37:
+list:x:38:
+irc:x:39:
+src:x:40:
+gnats:x:41:
+shadow:x:42:
+utmp:x:43:
+video:x:44:
+sasl:x:45:
+plugdev:x:46:netadmin
+staff:x:50:
+games:x:60:
+users:x:100:
+nogroup:x:65534:
+systemd-journal:x:101:
+systemd-network:x:102:
+systemd-resolve:x:103:
+messagebus:x:104:
+systemd-timesync:x:105:
+input:x:106:
+sgx:x:107:
+kvm:x:108:
+render:x:109:
+lxd:x:110:netadmin
+_ssh:x:111:
+crontab:x:112:
+syslog:x:113:
+uuidd:x:114:
+tcpdump:x:115:
+tss:x:116:
+landscape:x:117:
+netadmin:x:1000:
+fwupd-refresh:x:118:
+ssolis:x:1001:
+pbarahona:x:1002:
+tiks:x:1004:
+soporte1:x:1005:
+informatica:x:2005:ssolis,pzapata
+autouser:x:2006:
+angel:x:1015:
+mmorales:x:1016:
+oficina_tics:x:2007:
+finanzas:x:2008:
+finanzas1:x:2009:
+luisjose:x:1003:
+tics:x:1006:alumno
+alumno:x:1020:
+oficina_malaga:x:2010:
+oficina_madrid:x:2012:
+netadmin@netadmin:~$ sudo bash
+root@netadmin:/home/netadmin# exit
+exit
+netadmin@netadmin:~$ adduser pedro --ingroup oficina_malaga
+adduser: Only root may add a user or group to the system.
+netadmin@netadmin:~$ su -i
+su: invalid option -- 'i'
+Try 'su --help' for more information.
+netadmin@netadmin:~$ sudo -i
+root@netadmin:~# adduser pedro --ingroup oficina_malaga
+Adding user `pedro' ...
+Adding new user `pedro' (1009) with group `oficina_malaga' ...
+Creating home directory `/home/pedro' ...
+Copying files from `/etc/skel' ...
+New password:
+Retype new password:
+passwd: password updated successfully
+Changing the user information for pedro
+Enter the new value, or press ENTER for the default
+        Full Name []: pedro
+        Room Number []: 1
+        Work Phone []: 123456
+        Home Phone []: 987654
+        Other []: 1
+Is the information correct? [Y/n] y
+root@netadmin:~# adduser ana --ingroup oficina_malaga
+Adding user `ana' ...
+Adding new user `ana' (1010) with group `oficina_malaga' ...
+Creating home directory `/home/ana' ...
+Copying files from `/etc/skel' ...
+New password:
+Retype new password:
+passwd: password updated successfully
+Changing the user information for ana
+Enter the new value, or press ENTER for the default
+        Full Name []: ana
+        Room Number []: 123456
+        Work Phone []: 4455667
+        Home Phone []: 676890
+        Other []: 1
+Is the information correct? [Y/n] y
+root@netadmin:~# adduser berta --ingroup oficina_madrid
+Adding user `berta' ...
+Adding new user `berta' (1011) with group `oficina_madrid' ...
+Creating home directory `/home/berta' ...
+Copying files from `/etc/skel' ...
+New password:
+Retype new password:
+passwd: password updated successfully
+Changing the user information for berta
+Enter the new value, or press ENTER for the default
+        Full Name []: berta
+        Room Number []: 343434
+        Work Phone []: 565656
+        Home Phone []: 342312
+        Other []: 1
+Is the information correct? [Y/n] y
+root@netadmin:~# adduser laura --ingroup oficina_malaga
+Adding user `laura' ...
+Adding new user `laura' (1012) with group `oficina_malaga' ...
+Creating home directory `/home/laura' ...
+Copying files from `/etc/skel' ...
+New password:
+Retype new password:
+passwd: password updated successfully
+Changing the user information for laura
+Enter the new value, or press ENTER for the default
+        Full Name []: laura
+        Room Number []: 121212
+        Work Phone []: 345345
+        Home Phone []: 123456
+        Other []: 1
+Is the information correct? [Y/n] y
+root@netadmin:~# adduser laura oficina_madrid
+Adding user `laura' to group `oficina_madrid' ...
+Adding user laura to group oficina_madrid
+Done.
+root@netadmin:~# groups ana berta laura
+ana : oficina_malaga
+berta : oficina_madrid
+laura : oficina_malaga oficina_madrid
+root@netadmin:~# passwd pedro
+New password:
+Retype new password:
+passwd: password updated successfully
+root@netadmin:~# passwd ana
+New password:
+Retype new password:
+passwd: password updated successfully
+root@netadmin:~# passwd laura
+New password:
+Retype new password:
+passwd: password updated successfully
+root@netadmin:~# exit
+logout
+netadmin@netadmin:~$ ls /home/
+alumno  berta       halmache  laura     maguas   netadmin   pedro
+ana     brodriguez  kteran    luisjose  mflores  pbarahona  ssolis
+netadmin@netadmin:~$ su pedro
+Password:
+pedro@netadmin:/home/netadmin$ cd
+pedro@netadmin:~$ pwd
+/home/pedro
+pedro@netadmin:~$ touch informe.txt
+pedro@netadmin:~$ ls -l
+total 0
+-rw-r--r-- 1 pedro oficina_malaga 0 Nov 22 17:51 informe.txt
+pedro@netadmin:~$ mv informe.txt /home/laura/
+mv: cannot move 'informe.txt' to '/home/laura/informe.txt': Permission denied
+pedro@netadmin:~$
+netadmin@netadmin:~$ su pedro
+Password:
+pedro@netadmin:/home/netadmin$ ls
+ls: cannot open directory '.': Permission denied
+pedro@netadmin:/home/netadmin$ pwd
+/home/netadmin
+pedro@netadmin:/home/netadmin$ cd /home/pedro/
+pedro@netadmin:~$ ls
+informe.txt
+pedro@netadmin:~$ move informe.txt /home/laura/
+WARNING:root:could not open file '/etc/apt/sources.list'
+
+Command 'move' not found, did you mean:
+  command 'love' from snap love (11.2+pkg-d332)
+  command 'movx' from snap movx (2.0.1)
+  command 'mote' from snap mote (2.0.5)
+  command 'lmove' from deb suck (4.3.4-1build1)
+  command 'more' from deb util-linux (2.37.2-4ubuntu3)
+  command 'love' from deb love (11.3-1)
+  command 'jove' from deb jove (4.17.3.6-2)
+  command 'mmove' from deb mtools (4.0.33-1+really4.0.32-1build1)
+See 'snap info <snapname>' for additional versions.
+pedro@netadmin:~$ exit
+exit
+netadmin@netadmin:~$ pwd
+/home/netadmin
+netadmin@netadmin:~$ cd ..
+netadmin@netadmin:/home$ cd ..
+netadmin@netadmin:/$ pwd
+/
+netadmin@netadmin:/$ ls -l /home/
+total 0
+drwxr-x--- 2 alumno     alumno          57 Nov 22 17:25 alumno
+drwxr-x--- 2 ana        oficina_malaga  57 Nov 22 17:41 ana
+drwxr-x--- 2 berta      oficina_madrid  57 Nov 22 17:42 berta
+drwxrwxrwx 2 brodriguez finanzas        97 Nov 21 17:27 brodriguez
+drwxrwxrwx 3 halmache   oficina_tics   127 Nov 21 17:27 halmache
+drwxr-x--- 2 kteran     finanzas1       57 Nov 21 16:55 kteran
+drwxrwxrwx 2 laura      oficina_malaga  57 Nov 22 17:43 laura
+drwxr-x--- 2 luisjose   luisjose        78 Nov 22 17:18 luisjose
+drwxr-x--- 2 maguas     oficina_tics    57 Nov 21 16:27 maguas
+drwxr-x--- 3       1017 luisjose       111 Nov 21 16:19 mflores
+drwxr-x--- 4 netadmin   netadmin       172 Nov 21 17:21 netadmin
+drwxr-x--- 3 pbarahona  pbarahona       92 Nov 21 14:01 pbarahona
+drwxrwxrwx 3 pedro      oficina_malaga 111 Nov 22 18:08 pedro
+drwxr-x--- 4 ssolis     ssolis         125 Nov 21 14:00 ssolis
+netadmin@netadmin:/$ chmod 777 oficina_malaga
+chmod: cannot access 'oficina_malaga': No such file or directory
+netadmin@netadmin:/$ sudo -i
+[sudo] password for netadmin:
+root@netadmin:~# ls -l
+total 0
+drwx------ 3 root root 17 Nov 20 17:57 snap
+root@netadmin:~# ls -l /home/
+total 0
+drwxr-x--- 2 alumno     alumno          57 Nov 22 17:25 alumno
+drwxr-x--- 2 ana        oficina_malaga  57 Nov 22 17:41 ana
+drwxr-x--- 2 berta      oficina_madrid  57 Nov 22 17:42 berta
+drwxrwxrwx 2 brodriguez finanzas        97 Nov 21 17:27 brodriguez
+drwxrwxrwx 3 halmache   oficina_tics   127 Nov 21 17:27 halmache
+drwxr-x--- 2 kteran     finanzas1       57 Nov 21 16:55 kteran
+drwxrwxrwx 2 laura      oficina_malaga  57 Nov 22 17:43 laura
+drwxr-x--- 2 luisjose   luisjose        78 Nov 22 17:18 luisjose
+drwxr-x--- 2 maguas     oficina_tics    57 Nov 21 16:27 maguas
+drwxr-x--- 3       1017 luisjose       111 Nov 21 16:19 mflores
+drwxr-x--- 4 netadmin   netadmin       172 Nov 21 17:21 netadmin
+drwxr-x--- 3 pbarahona  pbarahona       92 Nov 21 14:01 pbarahona
+drwxrwxrwx 3 pedro      oficina_malaga 111 Nov 22 18:08 pedro
+drwxr-x--- 4 ssolis     ssolis         125 Nov 21 14:00 ssolis
+root@netadmin:~# chmod 777 oficina_malaga
+chmod: cannot access 'oficina_malaga': No such file or directory
+root@netadmin:~# chmod 777 /home/oficina_malaga
+chmod: cannot access '/home/oficina_malaga': No such file or directory
+root@netadmin:~# groups
+root
+root@netadmin:~# exit
+logout
+netadmin@netadmin:/$ groups
+netadmin adm cdrom sudo dip plugdev lxd
+netadmin@netadmin:/$ su pedro
+Password:
+pedro@netadmin:/$ pwd
+/
+pedro@netadmin:/$ whois
+WARNING:root:could not open file '/etc/apt/sources.list'
+
+Command 'whois' not found, but can be installed with:
+apt install whois
+Please ask your administrator.
+pedro@netadmin:/$ whoiami
+WARNING:root:could not open file '/etc/apt/sources.list'
+
+Command 'whoiami' not found, did you mean:
+  command 'whoami' from deb coreutils (8.32-4.1ubuntu1)
+Try: apt install <deb name>
+pedro@netadmin:/$ whoami
+pedro
+pedro@netadmin:/$ ls
+bin    dev   lib    libx32  mnt   root  snap      sys  var
+boot   etc   lib32  log     opt   run   srv       tmp
+cdrom  home  lib64  media   proc  sbin  swap.img  usr
+pedro@netadmin:/$ cd /home/
+pedro@netadmin:/home$ ls
+alumno  berta       halmache  laura     maguas   netadmin   pedro
+ana     brodriguez  kteran    luisjose  mflores  pbarahona  ssolis
+pedro@netadmin:/home$ ls -l /home/
+total 0
+drwxr-x--- 2 alumno     alumno          57 Nov 22 17:25 alumno
+drwxr-x--- 2 ana        oficina_malaga  57 Nov 22 17:41 ana
+drwxr-x--- 2 berta      oficina_madrid  57 Nov 22 17:42 berta
+drwxrwxrwx 2 brodriguez finanzas        97 Nov 21 17:27 brodriguez
+drwxrwxrwx 3 halmache   oficina_tics   127 Nov 21 17:27 halmache
+drwxr-x--- 2 kteran     finanzas1       57 Nov 21 16:55 kteran
+drwxrwxrwx 2 laura      oficina_malaga  57 Nov 22 17:43 laura
+drwxr-x--- 2 luisjose   luisjose        78 Nov 22 17:18 luisjose
+drwxr-x--- 2 maguas     oficina_tics    57 Nov 21 16:27 maguas
+drwxr-x--- 3       1017 luisjose       111 Nov 21 16:19 mflores
+drwxr-x--- 4 netadmin   netadmin       172 Nov 21 17:21 netadmin
+drwxr-x--- 3 pbarahona  pbarahona       92 Nov 21 14:01 pbarahona
+drwxrwxrwx 3 pedro      oficina_malaga 111 Nov 22 18:08 pedro
+drwxr-x--- 4 ssolis     ssolis         125 Nov 21 14:00 ssolis
+pedro@netadmin:/home$ ls
+alumno  berta       halmache  laura     maguas   netadmin   pedro
+ana     brodriguez  kteran    luisjose  mflores  pbarahona  ssolis
+pedro@netadmin:/home$ ls -l
+total 0
+drwxr-x--- 2 alumno     alumno          57 Nov 22 17:25 alumno
+drwxr-x--- 2 ana        oficina_malaga  57 Nov 22 17:41 ana
+drwxr-x--- 2 berta      oficina_madrid  57 Nov 22 17:42 berta
+drwxrwxrwx 2 brodriguez finanzas        97 Nov 21 17:27 brodriguez
+drwxrwxrwx 3 halmache   oficina_tics   127 Nov 21 17:27 halmache
+drwxr-x--- 2 kteran     finanzas1       57 Nov 21 16:55 kteran
+drwxrwxrwx 2 laura      oficina_malaga  57 Nov 22 17:43 laura
+drwxr-x--- 2 luisjose   luisjose        78 Nov 22 17:18 luisjose
+drwxr-x--- 2 maguas     oficina_tics    57 Nov 21 16:27 maguas
+drwxr-x--- 3       1017 luisjose       111 Nov 21 16:19 mflores
+drwxr-x--- 4 netadmin   netadmin       172 Nov 21 17:21 netadmin
+drwxr-x--- 3 pbarahona  pbarahona       92 Nov 21 14:01 pbarahona
+drwxrwxrwx 3 pedro      oficina_malaga 111 Nov 22 18:08 pedro
+drwxr-x--- 4 ssolis     ssolis         125 Nov 21 14:00 ssolis
+pedro@netadmin:/home$ pwd
+/home
+pedro@netadmin:/home$ ls
+alumno  berta       halmache  laura     maguas   netadmin   pedro
+ana     brodriguez  kteran    luisjose  mflores  pbarahona  ssolis
+pedro@netadmin:/home$ exit
+exit
+netadmin@netadmin:/$ su pedro
+Password:
+pedro@netadmin:/$ cd
+pedro@netadmin:~$ pwd
+/home/pedro
+pedro@netadmin:~$ ls -l
+total 0
+-rw-r--r-- 1 pedro oficina_malaga 0 Nov 22 17:51 informe.txt
+pedro@netadmin:~$ chmod 777 informe.txt
+pedro@netadmin:~$ ls -l
+total 0
+-rwxrwxrwx 1 pedro oficina_malaga 0 Nov 22 17:51 informe.txt
+pedro@netadmin:~$ move informe.txt /home/laura/
+WARNING:root:could not open file '/etc/apt/sources.list'
+
+Command 'move' not found, did you mean:
+  command 'love' from snap love (11.2+pkg-d332)
+  command 'movx' from snap movx (2.0.1)
+  command 'mote' from snap mote (2.0.5)
+  command 'mmove' from deb mtools (4.0.33-1+really4.0.32-1build1)
+  command 'jove' from deb jove (4.17.3.6-2)
+  command 'love' from deb love (11.3-1)
+  command 'more' from deb util-linux (2.37.2-4ubuntu3)
+  command 'lmove' from deb suck (4.3.4-1build1)
+See 'snap info <snapname>' for additional versions.
+pedro@netadmin:~$ exit
+exit
+netadmin@netadmin:/$ pwd
+/
+netadmin@netadmin:/$ whoami
+netadmin
+netadmin@netadmin:/$ ls -l /home/
+total 0
+drwxr-x--- 2 alumno     alumno          57 Nov 22 17:25 alumno
+drwxr-x--- 2 ana        oficina_malaga  57 Nov 22 17:41 ana
+drwxr-x--- 2 berta      oficina_madrid  57 Nov 22 17:42 berta
+drwxrwxrwx 2 brodriguez finanzas        97 Nov 21 17:27 brodriguez
+drwxrwxrwx 3 halmache   oficina_tics   127 Nov 21 17:27 halmache
+drwxr-x--- 2 kteran     finanzas1       57 Nov 21 16:55 kteran
+drwxrwxrwx 2 laura      oficina_malaga  57 Nov 22 17:43 laura
+drwxr-x--- 2 luisjose   luisjose        78 Nov 22 17:18 luisjose
+drwxr-x--- 2 maguas     oficina_tics    57 Nov 21 16:27 maguas
+drwxr-x--- 3       1017 luisjose       111 Nov 21 16:19 mflores
+drwxr-x--- 4 netadmin   netadmin       172 Nov 21 17:21 netadmin
+drwxr-x--- 3 pbarahona  pbarahona       92 Nov 21 14:01 pbarahona
+drwxrwxrwx 3 pedro      oficina_malaga 111 Nov 22 18:08 pedro
+drwxr-x--- 4 ssolis     ssolis         125 Nov 21 14:00 ssolis
+netadmin@netadmin:/$ su pedro
+Password:
+pedro@netadmin:/$ cd
+pedro@netadmin:~$ ls
+informe.txt
+pedro@netadmin:~$ ls -l
+total 0
+-rwxrwxrwx 1 pedro oficina_malaga 0 Nov 22 17:51 informe.txt
+pedro@netadmin:~$ mv informe.txt /home/laura/
+pedro@netadmin:~$ exit
+exit
+netadmin@netadmin:/$ pwd
+/
+netadmin@netadmin:/$ sudo -i
+[sudo] password for netadmin:
+root@netadmin:~# ls -l
+total 0
+drwx------ 3 root root 17 Nov 20 17:57 snap
+root@netadmin:~# touch hola_mundo.rb
+root@netadmin:~# ls -l
+total 0
+-rw-r--r-- 1 root root  0 Nov 22 18:40 hola_mundo.rb
+drwx------ 3 root root 17 Nov 20 17:57 snap
+root@netadmin:~# chmod 751 hola_mundo.rb
+root@netadmin:~# ls -l
+total 0
+-rwxr-x--x 1 root root  0 Nov 22 18:40 hola_mundo.rb
+drwx------ 3 root root 17 Nov 20 17:57 snap
+root@netadmin:~# ls -l /home/
+total 0
+drwxr-x--- 2 alumno     alumno          57 Nov 22 17:25 alumno
+drwxr-x--- 2 ana        oficina_malaga  57 Nov 22 17:41 ana
+drwxr-x--- 2 berta      oficina_madrid  57 Nov 22 17:42 berta
+drwxrwxrwx 2 brodriguez finanzas        97 Nov 21 17:27 brodriguez
+drwxrwxrwx 3 halmache   oficina_tics   127 Nov 21 17:27 halmache
+drwxr-x--- 2 kteran     finanzas1       57 Nov 21 16:55 kteran
+drwxrwxrwx 2 laura      oficina_malaga  76 Nov 22 18:37 laura
+drwxr-x--- 2 luisjose   luisjose        78 Nov 22 17:18 luisjose
+drwxr-x--- 2 maguas     oficina_tics    57 Nov 21 16:27 maguas
+drwxr-x--- 3       1017 luisjose       111 Nov 21 16:19 mflores
+drwxr-x--- 4 netadmin   netadmin       172 Nov 21 17:21 netadmin
+drwxr-x--- 3 pbarahona  pbarahona       92 Nov 21 14:01 pbarahona
+drwxrwxrwx 3 pedro      oficina_malaga  92 Nov 22 18:37 pedro
+drwxr-x--- 4 ssolis     ssolis         125 Nov 21 14:00 ssolis
+root@netadmin:~# chmod o-x hola_mundo.rb
+root@netadmin:~# ls -l /home/
+total 0
+drwxr-x--- 2 alumno     alumno          57 Nov 22 17:25 alumno
+drwxr-x--- 2 ana        oficina_malaga  57 Nov 22 17:41 ana
+drwxr-x--- 2 berta      oficina_madrid  57 Nov 22 17:42 berta
+drwxrwxrwx 2 brodriguez finanzas        97 Nov 21 17:27 brodriguez
+drwxrwxrwx 3 halmache   oficina_tics   127 Nov 21 17:27 halmache
+drwxr-x--- 2 kteran     finanzas1       57 Nov 21 16:55 kteran
+drwxrwxrwx 2 laura      oficina_malaga  76 Nov 22 18:37 laura
+drwxr-x--- 2 luisjose   luisjose        78 Nov 22 17:18 luisjose
+drwxr-x--- 2 maguas     oficina_tics    57 Nov 21 16:27 maguas
+drwxr-x--- 3       1017 luisjose       111 Nov 21 16:19 mflores
+drwxr-x--- 4 netadmin   netadmin       172 Nov 21 17:21 netadmin
+drwxr-x--- 3 pbarahona  pbarahona       92 Nov 21 14:01 pbarahona
+drwxrwxrwx 3 pedro      oficina_malaga  92 Nov 22 18:37 pedro
+drwxr-x--- 4 ssolis     ssolis         125 Nov 21 14:00 ssolis
+root@netadmin:~# ls -l
+total 0
+-rwxr-x--- 1 root root  0 Nov 22 18:40 hola_mundo.rb
+drwx------ 3 root root 17 Nov 20 17:57 snap
+root@netadmin:~# chmod g+w hola_mundo.rb
+root@netadmin:~# ls -l
+total 0
+-rwxrwx--- 1 root root  0 Nov 22 18:40 hola_mundo.rb
+drwx------ 3 root root 17 Nov 20 17:57 snap
+root@netadmin:~# chmod 755 hola_mundo.rb
+root@netadmin:~# ls -l
+total 0
+-rwxr-xr-x 1 root root  0 Nov 22 18:40 hola_mundo.rb
+drwx------ 3 root root 17 Nov 20 17:57 snap
+root@netadmin:~#
+
